@@ -1,10 +1,6 @@
-import os
-import sys
+import juliacall as jl
 
-from julia import Main
+jl.seval("using FractionalCalculus")
 
-script_dir = os.path.dirname(os.path.realpath(__file__))
-Main.include(os.path.join(script_dir, "setup.jl"))
-
-from julia import FractionalCalculus
-sys.modules[__name__] = FractionalCalculus
+fracdiff=jl.fracdiff
+fracint=jl.fracint
